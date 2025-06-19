@@ -18,6 +18,7 @@ from agents.streaming import (
     StreamingTechnologiesAgent,
     StreamingCertificationsAgent
 )
+from config import EnvConfig
 
 # Initialize FastAPI app
 app = FastAPI(
@@ -175,4 +176,4 @@ async def stream_certifications_query(query: Query):
 
 if __name__ == "__main__":
     import uvicorn
-    uvicorn.run(app, host="0.0.0.0", port=8000)
+    uvicorn.run(app, host="0.0.0.0", port=int(EnvConfig.PORT))

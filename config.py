@@ -22,3 +22,5 @@ class EnvConfig:
     VECTOR_STORE_DIR = os.getenv("VECTOR_STORE_DIR", "vector_store")
     DATA_DIR = os.getenv("DATA_DIR", "data")
 
+    # Port
+    PORT = os.getenv("PORT", 8000)
