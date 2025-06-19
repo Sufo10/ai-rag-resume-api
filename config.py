@@ -17,3 +17,8 @@ class EnvConfig:
     # LLM Provider Selection
     # Options: "openai" or "groq"
     LLM_PROVIDER = os.getenv("LLM_PROVIDER", "groq")
+
+    # Directories
+    VECTOR_STORE_DIR = os.getenv("VECTOR_STORE_DIR", "vector_store")
+    DATA_DIR = os.getenv("DATA_DIR", "data")
+

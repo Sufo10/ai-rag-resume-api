@@ -1,6 +1,7 @@
 from utils.retriever import query_faiss
 from utils.llm_groq import ask_llm
 from typing import List
+from config import EnvConfig
 
 
 class BaseAgent:
@@ -25,8 +26,8 @@ class BaseAgent:
         """
         chunks = query_faiss(
             question,
-            f"vector_store/{self.index_name}.index",
-            f"vector_store/{self.index_name}.json"
+            f"{EnvConfig.VECTOR_STORE_DIR}/{self.index_name}.index",
+            f"{EnvConfig.VECTOR_STORE_DIR}/{self.index_name}.json"
         )
 
         if not chunks:

@@ -1,6 +1,7 @@
 import os
 import sys
 from pathlib import Path
+from config import EnvConfig
 
 # Ensure we're running from the project root
 if __name__ == "__main__":
@@ -25,16 +26,16 @@ def split_text(text, max_tokens=200):
 
 
 def build_memory(label):
-    data_path = f"data/{label}.md"
+    data_path = f"{EnvConfig.DATA_DIR}/{label}.md"
     with open(data_path, "r") as f:
         text = f.read()
 
     chunks = split_text(text)
     print(f"📄 {label}: {len(chunks)} chunks")
 
-    os.makedirs("vector_store", exist_ok=True)
-    index_path = f"vector_store/{label}.index"
-    mapping_path = f"vector_store/{label}.json"
+    os.makedirs(f"{EnvConfig.VECTOR_STORE_DIR}", exist_ok=True)
+    index_path = f"{EnvConfig.VECTOR_STORE_DIR}/{label}.index"
+    mapping_path = f"{EnvConfig.VECTOR_STORE_DIR}/{label}.json"
 
     create_faiss_index(chunks, index_path, mapping_path)
     print(f"✅ Memory built for {label}:")

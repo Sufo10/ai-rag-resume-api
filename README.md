@@ -42,35 +42,48 @@ A Retrieval-Augmented Generation (RAG) API implementing vector similarity search
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/Sufo10/ai-rag-resume-api.git
+   git clone git@github.com:Sufo10/ai-rag-resume-api.git
    cd ai-rag-resume-api
    ```
 
-2. Set up your environment:
+2. Install uv (Fast Python package installer and resolver):
+
+   ```bash
+   pip install uv
+   ```
+
+3. Create and activate a virtual environment:
 
    ```bash
    python -m venv .venv
-   source .venv/bin/activate  # On Windows use: .venv\Scripts\activate
-   pip install -r requirements.txt
+   source .venv/bin/activate
    ```
 
-3. Configure your environment variables:
+4. Install dependencies using uv:
+
+   ```bash
+   uv sync
+   ```
+
+5. Configure your environment variables:
 
    ```bash
    cp .env.example .env
-   # Edit .env with your API keys
+   # Edit .env with your LLM provider credentials (OpenAI or Groq)
    ```
 
-4. Build the vector store:
+6. Build the vector store:
 
    ```bash
    python scripts/build_memory.py
    ```
 
-5. Start the server:
+7. Start the server:
    ```bash
    uvicorn main:app --reload
    ```
+
+The API will be available at `http://localhost:8000` with interactive documentation at `/docs`.
 
 ## 🔌 API Endpoints
 

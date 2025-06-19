@@ -1,6 +1,7 @@
 from typing import Generator, Any
 from utils.retriever import query_faiss
 from utils.llm_stream import stream_llm
+from config import EnvConfig
 
 
 class StreamingAgent:
@@ -25,8 +26,8 @@ class StreamingAgent:
         """
         chunks = query_faiss(
             question,
-            f"vector_store/{self.index_name}.index",
-            f"vector_store/{self.index_name}.json"
+            f"{EnvConfig.VECTOR_STORE_DIR}/{self.index_name}.index",
+            f"{EnvConfig.VECTOR_STORE_DIR}/{self.index_name}.json"
         )
 
         if not chunks:
