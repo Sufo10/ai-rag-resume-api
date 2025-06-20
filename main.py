@@ -133,6 +133,7 @@ QUESTION:
 {query.question}
 
 INSTRUCTIONS:
+- Answer directly and concisely, without prefacing with phrases like "Based on the context".
 - Base your answer strictly on the context above.
 - If the context does not contain the answer, say so clearly.
 - Be concise, accurate, and professional in your response.
