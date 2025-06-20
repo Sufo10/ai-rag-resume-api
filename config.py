@@ -3,6 +3,7 @@ import os
 
 load_dotenv()
 
+
 class EnvConfig:
-    OPENROUTER_API_KEY = os.getenv("OPENROUTER_API_KEY", "")
+    GEMINI_API_KEY = os.getenv("GEMINI_API_KEY", "")
     PORT = os.getenv("PORT", 8000)

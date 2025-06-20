@@ -5,7 +5,6 @@ from config import EnvConfig
 import requests
 import json
 import os
-import time
 from fastapi.responses import StreamingResponse
 
 app = FastAPI(
@@ -81,20 +80,22 @@ Summary: {resume['profile']['summary']}
     return context
 
 
-def openrouter_stream_generator(prompt):
-    url = "https://openrouter.ai/api/v1/chat/completions"
-    headers = {
-        "Authorization": f"Bearer {EnvConfig.OPENROUTER_API_KEY}",
-        "Content-Type": "application/json"
-    }
+def gemini_stream_generator(prompt, question):
+    url = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:streamGenerateContent"
+    headers = {"Content-Type": "application/json"}
+
     payload = {
-        "model": "deepseek/deepseek-chat-v3-0324:free",
-        "messages": [
-            {"role": "user", "content": prompt}
-        ],
-        "stream": True
+        "systemInstruction": {
+            "parts": [{
+                "text": prompt
+            }]
+        },
+        "contents": [
+            {"parts": [{"text": question}]}
+        ]
     }
-    with requests.post(url, headers=headers, json=payload, stream=True) as r:
+    params = {"alt": "sse", "key": f"{EnvConfig.GEMINI_API_KEY}"}
+    with requests.post(url, headers=headers, params=params, json=payload, stream=True) as r:
         buffer = ""
         for chunk in r.iter_content(chunk_size=1024, decode_unicode=True):
             buffer += chunk
@@ -106,23 +107,23 @@ def openrouter_stream_generator(prompt):
                 buffer = buffer[line_end + 1:]
                 if line.startswith('data: '):
                     data = line[6:]
-                    if data == '[DONE]':
-                        return
+                    if not data or data == '[DONE]':
+                        continue
                     try:
                         data_obj = json.loads(data)
-                        content = data_obj["choices"][0]["delta"].get(
-                            "content")
-                        if content:
-                            yield content
-                    except json.JSONDecodeError:
+                        # Extract the streamed text from Gemini's SSE response
+                        text = data_obj["candidates"][0]["content"]["parts"][0]["text"]
+                        if text:
+                            yield text
+                    except Exception:
                         pass
 
 
 @app.post("/api/resume")
-async def ask_openrouter(query: Query):
+async def gemini_test_stream(query: Query):
     context = build_context_from_json()
     prompt = f"""
-You are an expert AI assistant helping answer questions about a candidate's professional background, skills, and achievements. Use ONLY the provided context below to answer the user's question. Do not use any outside knowledge or make up information. If the answer is not in the context, say "I don't have that information based on the provided context."
+You are an expert AI assistant helping answer questions about a candidate's professional background, skills, and achievements. Use ONLY the provided context below to answer the user's question. Do not use any outside knowledge or make up information. If the answer is not in the context, say \"I don't have that information.\"
 
 ---
 CONTEXT:
@@ -133,20 +134,23 @@ QUESTION:
 {query.question}
 
 INSTRUCTIONS:
-- Answer directly and concisely, without prefacing with phrases like "Based on the context".
-- Base your answer strictly on the context above.
+INSTRUCTIONS:
+- Respond in clear, professional, and well-structured markdown.
+- Use only the information in the context, but you may synthesize, summarize, or evaluate the candidate’s skills and experience based on the evidence provided.
+- For questions about technical expertise (e.g., React.js), cite relevant roles, projects, and bullet points, and provide a brief assessment of proficiency and impact.
+- If the question is about projects, list each project as a markdown heading (## Project Name), followed by its stack, link (if available), and bullet points describing the work and impact.
+- Use markdown formatting: headings, bullet points, and links.
+- Do not make up facts not present in the context, but you may draw reasonable conclusions based on the evidence.
 - If the context does not contain the answer, say so clearly.
-- Be concise, accurate, and professional in your response.
-- If the question is about skills, experience, or projects, cite the relevant section or bullet point.
-- If the question is about dates, locations, or roles, use the exact data from the context.
-- Format your answer in valid markdown, using lists, headings, and code blocks where appropriate.
+- Never preface with phrases like "Based on the context".
+- Be concise, accurate, and directly answer the question.
 """
-    return StreamingResponse(openrouter_stream_generator(prompt), media_type="text/markdown")
+    return StreamingResponse(gemini_stream_generator(prompt, query.question), media_type="text/markdown")
 
 
 @app.get("/")
 async def root():
-    return {"message": "Welcome to the Personal AI API. Use /api/prompt/track to ask questions."}
+    return {"message": "Welcome to the Personal AI API. Use /api/resume to ask questions."}
 
 
 @app.get("/api/health")

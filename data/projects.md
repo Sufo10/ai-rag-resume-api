@@ -37,13 +37,16 @@ _React.js, RTK Query_
 - Integrated payment models and real-time notification systems.
 
 **Ecommerce Platform**  
-_NestJS, TypeORM, PostgreSQL, React.js, RTK Query_
+_NestJS, TypeORM, PostgreSQL, Event Driven Architecture, Cookie Authentication, React.js, RTK Query_
 
-- Developed a complete ecommerce solution with product listings, shopping cart, checkout, and admin dashboard.
-- Built RESTful APIs and managed relational data with TypeORM and PostgreSQL.
+- Developed a complete ecommerce solution with product catalog, dynamic shopping cart, checkout flow, and admin dashboard.
+- Built scalable RESTful APIs with NestJS, handling complex relational data using TypeORM and PostgreSQL, with optimized queries for high performance.
+- Implemented a fault-tolerant payment system supporting Stripe, PayPal, Esewa, and Khalti with proper error handling and retries.
+- Designed event-driven queues for scheduled product updates and asynchronous order processing.
+- Implemented secure cookie-based authentication with JWT for user sessions.
 
-**Payment Microservice**  
-_Fastify, gRPC, Stripe, PayPal_
+  **Payment Microservice**  
+  _Fastify, gRPC, Stripe, PayPal_
 
 - Created a payment microservice for Stripe and PayPal transactions.
 - Integrated gRPC for secure inter-service communication.
