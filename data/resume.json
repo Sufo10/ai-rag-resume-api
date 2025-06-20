@@ -1,0 +1,265 @@
+{
+  "profile": {
+    "name": "Sujan Chhetri Poudel",
+    "phone": "+977-9815091399",
+    "email": "sujan.poudel210@gmail.com",
+    "location": "Kathmandu, Nepal",
+    "website": "sujancpoudel.com.np",
+    "summary": "Passionate and versatile Full-Stack Developer with nearly 3 years of hands-on experience crafting scalable web applications and microservices using modern JavaScript and TypeScript stacks. Adept at architecting robust backend systems and delivering seamless, intuitive front-end experiences. Eager to leverage strong problem-solving abilities and excellent communication skills to contribute innovative solutions and drive impactful projects. Always excited to learn new technologies and take on challenging opportunities that foster growth and collaboration."
+  },
+  "experience": [
+    {
+      "company": "Innovate Tech Pvt. Ltd.",
+      "location": "Kathmandu, Nepal",
+      "roles": [
+        {
+          "title": "Software Engineer",
+          "start": "2024-09",
+          "end": "Present",
+          "bullets": [
+            "Designed and implemented a real-time audio-to-text synchronization system by integrating OpenAI Whisper, significantly improving accessibility across diverse educational platforms.",
+            "Architected and deployed a highly scalable microservices-based system, introducing the API Gateway pattern to replace a monolithic architecture, resulting in improved system scalability and independent team deployments.",
+            "Developed and maintained a scalable system deployed in 10+ countries, serving over 15 million users with a strong emphasis on availability, performance, and reliability.",
+            "Built an event-driven tracking system using WebSockets and MongoDB, enhancing real-time analytics and user engagement through improved monitoring capabilities.",
+            "Reduced backend response times by implementing asynchronous task handling with BullMQ and Kafka, decoupling compute-heavy tasks such as media processing and batch notifications.",
+            "Strengthened platform security by integrating virus scanning and file validation systems into the upload workflows, reducing file-related vulnerabilities by over 40%.",
+            "Proactively led and mentored a backend sub-team in the development of an HRM employee tracking system, ensuring timely delivery of production-ready features through agile sprints.",
+            "Introduced advanced database performance strategies including materialized views, Redis caching, and query tuning, leading to significantly faster data retrieval on high-traffic endpoints.",
+            "Conducted comprehensive unit testing with Jest, performance/load testing using K6, and integrated automated testing workflows into the CI/CD pipeline to uphold code reliability across services.",
+            "Developed real-time session tracking modules using MongoDB, enhancing analytics granularity and enabling personalized in-app experiences.",
+            "Implemented monitoring and alerting infrastructure using AWS CloudWatch, Grafana, and Prometheus, enabling proactive incident response and reducing system downtime.",
+            "Contributed to the deployment of a Retrieval-Augmented Generation (RAG) chatbot by integrating OpenAI LLMs with internal data sources, improving contextual user support and increasing retention.",
+            "Migrated legacy frontend applications to a modern tech stack using React.js, RTK Query, and reusable SCSS-based components, enhancing maintainability and providing a unified user experience.",
+            "Automated the release lifecycle by configuring GitLab CI/CD pipelines, significantly reducing manual deployment effort and ensuring consistent delivery to staging and production.",
+            "Co-engineered a high-traffic E-commerce platform with frontend state management using RTK Query and backend services developed in NestJS with PostgreSQL, supporting tens of thousands of concurrent users across multiple regions."
+          ]
+        },
+        {
+          "title": "Associate Software Engineer",
+          "start": "2023-06",
+          "end": "2024-09",
+          "bullets": [
+            "Migrated multiple TV-related projects within an NX monorepo architecture from Express to Fastify, significantly enhancing modularity and achieving over 30% improvement in response performance across services.",
+            "Refactored monolithic backend services into independent microservices using gRPC for inter-service communication and event-driven patterns with RabbitMQ, ensuring high availability and seamless scalability.",
+            "Redesigned and integrated secure, multi-region payment workflows using Stripe and PayPal APIs, resulting in reduced transaction latency and a 25% decrease in payment-related support tickets.",
+            "Developed a real-time event notification system by replacing AWS SQS + Lambda with a more performant RabbitMQ and WebSocket-based solution, improving delivery speed and achieving over 99% message delivery accuracy.",
+            "Built and deployed a high-volume bulk parser AWS Lambda function to ingest, validate, and store large CSV datasets efficiently, reducing manual workload and accelerating administrative workflows.",
+            "Contributed to multiple education-focused products such as My Second Teacher, deployed across 10+ countries, ensuring localization support, performance optimizations, and consistent user experience at scale.",
+            "Utilized React.js, RTK Query, and SCSS to modernize legacy frontend modules, building reusable components and improving frontend performance and developer productivity.",
+            "Integrated advanced cloud-native solutions using AWS (EC2, S3, Route 53, ELB, Aurora, Lambda, IAM, etc.) to ensure secure, reliable, and scalable deployment of services.",
+            "Improved DevOps automation by using Docker, Kubernetes (EKS), and GitLab CI/CD for container orchestration and continuous deployment, minimizing downtime and manual interventions during releases.",
+            "Worked closely with cross-functional teams to introduce observability tools like CloudWatch and Grafana, and implemented structured logging with Winston, enabling proactive monitoring and debugging.",
+            "Mentored junior developers and collaborated with QA and product teams to deliver features aligned with user needs, ensuring code quality, readability, and maintainability across multiple projects.",
+            "Continuously refined architectural knowledge by contributing to internal design discussions and participating in R&D initiatives related to distributed systems, system design, and event-sourcing patterns."
+          ]
+        },
+        {
+          "title": "Full Stack Developer Trainee",
+          "start": "2022-12",
+          "end": "2023-06",
+          "bullets": [
+            "Promoted from intern to trainee, contributing over 6 months to frontend and backend projects with rapid learning and consistent performance.",
+            "Led migration of the back-office admin panel to Version 2 using React Query, enhancing data handling and user experience for internal teams.",
+            "Developed and maintained multiple frontend admin dashboards to improve operational workflows and internal application control."
+          ]
+        },
+        {
+          "title": "Full Stack Developer Intern",
+          "start": "2022-08",
+          "end": "2022-12",
+          "bullets": [
+            "Contributed to the development of an internal hiring management system by implementing Single Sign-On (SSO) using Keycloak across frontend (React) and backend (Express, Node.js).",
+            "Optimized MongoDB schema and queries to improve performance and streamline candidate data management.",
+            "Built multiple React views focused on recruitment workflows, enhancing HR team efficiency and data accessibility.",
+            "Gained hands-on experience with full-stack development, applying best practices in frontend and backend environments."
+          ]
+        }
+      ]
+    },
+    {
+      "company": "Nimble Bees",
+      "location": "Kathmandu, Nepal",
+      "roles": [
+        {
+          "title": "Backend Developer Intern",
+          "start": "2022-03",
+          "end": "2022-07",
+          "bullets": [
+            "Built real-time features for a tour booking system application using Express and MongoDB, along with other technologies.",
+            "Gained expertise in Node.js, leveraging its core functionalities to deliver a robust booking platform."
+          ]
+        }
+      ]
+    }
+  ],
+  "education": [
+    {
+      "degree": "BSc (Hons) in Computing",
+      "grade": "First Class Honours (Top of the Faculty 81.67%)",
+      "school": "London Metropolitan University, London, UK",
+      "start": "2021-03",
+      "end": "2023-09"
+    },
+    {
+      "degree": "SLC in Science",
+      "grade": "A+ (Top of the School 3.89 GPA)",
+      "school": "Liverpool International Secondary School, Kathmandu, Nepal",
+      "start": "2017-07",
+      "end": "2019-08"
+    }
+  ],
+  "technologies": {
+    "programming_languages": [
+      "TypeScript",
+      "JavaScript",
+      "Python",
+      "Java (Academic proficiency)",
+      "Rust",
+      "HTML",
+      "CSS"
+    ],
+    "databases": ["MongoDB", "PostgreSQL", "MySQL", "Chroma DB"],
+    "frontend": [
+      "React.js",
+      "Next.js",
+      "React Query",
+      "RTK",
+      "SCSS",
+      "Material UI",
+      "Tailwind CSS",
+      "Shadcn/ui",
+      "Bootstrap"
+    ],
+    "backend": ["Node.js", "Express.js", "Nest.js", "Fastify", "Prisma", "TypeORM"],
+    "api_web_services": [
+      "REST (Express, Fastify, Nest)",
+      "GraphQL (Apollo)",
+      "gRPC (grpc.js)",
+      "MQTT",
+      "SQS",
+      "Kafka",
+      "Socket.io"
+    ],
+    "containerization_orchestration": ["Docker", "Kubernetes (k8s)"],
+    "caching_proxy": ["Redis", "Nginx"],
+    "cloud_platforms": ["AWS"],
+    "version_control_ci_cd": ["Git", "GitHub", "GitLab", "GitLab CI", "GitHub Actions"],
+    "runtime_environments": ["Node.js", "Deno.js"],
+    "architecture_patterns": ["Microservices", "Monolithic"],
+    "testing_qa": ["Jest", "Cypress", "K6", "Lighthouse"],
+    "additional_tools_skills": [
+      "OpenAI Whisper (AI Tools)",
+      "Security Best Practices",
+      "Design Patterns",
+      "Jira",
+      "Trello",
+      "Asana",
+      "Slack"
+    ]
+  },
+  "projects": [
+    {
+      "name": "TTS Backend (Text-to-Speech System)",
+      "stack": ["Rust (Tokio)", "Piper", "OpenAI Whisper", "AWS"],
+      "bullets": [
+        "Engineered a backend service that converts text to speech using Piper and processes audio metadata via OpenAI Whisper for speech-to-text highlighting.",
+        "Leveraged Rust for high performance and concurrency, achieving low-latency streaming and efficient audio handling."
+      ]
+    },
+    {
+      "name": "My Second Teacher",
+      "stack": ["React.js", "Node.js", "MongoDB"],
+      "link": "https://mysecondteacher.com",
+      "bullets": [
+        "Multi-award-winning academic delivery platform for Cambridge Primary Checkpoint, Lower Secondary, IGCSE, and AS/A Levels, used in 51+ countries.",
+        "Contributed scalable backend components and enhanced user experience for a global e-learning audience.",
+        "Developed and maintained backend services supporting interactive videos, eBooks, live tutoring, mastery/mock tests, and diagnostic reports.",
+        "Enabled teachers to conduct live classes, distribute assignments, and access rich teaching resources.",
+        "Integrated analytics and reporting features for school leaders and parents to monitor student and school performance."
+      ]
+    },
+    {
+      "name": "JelaJah Baca",
+      "stack": ["React.js", "Framer Motion", "RTK Query"],
+      "link": "https://jelajahbaca.com",
+      "bullets": [
+        "Built an eLibrary system where users can read eBooks with features like multi-color highlighting, scribbling, and annotations.",
+        "Developed an intuitive React frontend with responsive design for a rich reading experience."
+      ]
+    },
+    {
+      "name": "Kung Fu Quiz",
+      "stack": ["React.js", "NestJS", "RTK Query", "MongoDB"],
+      "link": "https://kungfuquiz.com",
+      "bullets": [
+        "Gamified quiz platform that lets teachers (‘Sifus’) create interactive quizzes based on YouTube videos, using multiple challenge types and modes (Feedback, Assessment, Game).",
+        "Built backend features for quiz creation, video syncing, challenge management, and user scoring using NestJS and MongoDB.",
+        "Developed end-to-end solution including backoffice tools for admins to manage quizzes and users.",
+        "Students join quizzes with unique codes, participate in video-based learning, and receive instant feedback.",
+        "Provided data-driven insights for teachers to track student progress and engagement.",
+        "Designed to make learning fun, engaging, and effective through game-based mechanics."
+      ]
+    },
+    {
+      "name": "Home School Asia",
+      "stack": ["React.js", "RTK Query"],
+      "link": "https://www.homeschool.asia",
+      "bullets": [
+        "Complete online homeschooling solution for Cambridge IGCSE and AS/A Levels.",
+        "Developed and optimized features for interactive video lessons, eBooks, test papers, and revision notes.",
+        "Implemented and optimized payment models to support various subscription plans and secure transactions.",
+        "Integrated notification system for real-time updates using email and in-app alerts.",
+        "Added parental monitoring, diagnostic and performance reports, and direct access to subject experts.",
+        "Supported personalized learning plans, competency evaluation, and real-time academic support."
+      ]
+    },
+    {
+      "name": "Ecommerce Platform",
+      "stack": ["NestJS", "TypeORM", "PostgreSQL", "React.js", "RTK Query"],
+      "bullets": [
+        "Developed a complete ecommerce solution with product listings, shopping cart, checkout flow, and admin dashboard.",
+        "Built RESTful APIs with NestJS and handled relational data using TypeORM and PostgreSQL.",
+        "Implemented state management and dynamic UI components on the frontend using React."
+      ]
+    },
+    {
+      "name": "Payment Microservice",
+      "stack": ["Fastify", "gRPC", "Stripe", "PayPal"],
+      "bullets": [
+        "Created a dedicated payment microservice to handle transactions via Stripe and PayPal.",
+        "Integrated gRPC-based communication to ensure secure and efficient interaction between services.",
+        "Designed fault-tolerant mechanisms and handled edge cases for real-world transaction workflows."
+      ]
+    },
+    {
+      "name": "Notification Microservice",
+      "stack": ["Fastify", "RabbitMQ", "Socket.IO", "AWS SES"],
+      "bullets": [
+        "Developed a real-time notification microservice using RabbitMQ for message brokering and Socket.IO for WebSocket-based push notifications.",
+        "Implemented email delivery using Amazon SES to support transactional and event-driven email communication.",
+        "Built an event-driven system that supports multi-channel notifications (in-app, WebSocket, email) for maximum user reach and flexibility."
+      ]
+    }
+  ],
+  "certifications": {
+    "academic": ["Top of the Cohort"],
+    "web_development": [
+      "Express Essential Training",
+      "Node.js Essential Training",
+      "Node.js Essential Training: Web Servers, Tests, and Deployment",
+      "Building RESTful APIs with Node.js and Express",
+      "Building a Website with Node.js and Express.js",
+      "Learning REST APIs"
+    ],
+    "database_management": ["SQL Essential Training", "Learning MongoDB"],
+    "testing": ["Learning End-to-End Testing with Jest"],
+    "cloud_concepts": ["Introduction to AWS for Non-Engineers: 1 Cloud Concepts"],
+    "security": ["Node.js Securing RESTful APIs"],
+    "typescript": ["Learning TypeScript"]
+  },
+  "languages": [
+    { "name": "English", "proficiency": "Full Professional Proficiency" },
+    { "name": "Nepali", "proficiency": "Native Proficiency" },
+    { "name": "Hindi", "proficiency": "Conversational (Speaking Only)" }
+  ]
+}

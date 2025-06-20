@@ -1,41 +1,55 @@
-## Projects
+# Projects
 
-### [TTS Backend](#) – Rust, Piper, OpenAI Whisper
+**TTS Backend (Text-to-Speech System)**  
+_Rust (Tokio), Piper, OpenAI Whisper, AWS_
 
-- Engineered a backend service that converts text to speech using Piper and processes audio metadata via OpenAI Whisper for speech-to-text highlighting.
-- Leveraged Rust for high performance and concurrency, achieving low-latency streaming and efficient audio handling.
+- Developed a backend service for text-to-speech conversion using Piper and audio metadata processing with OpenAI Whisper.
+- Achieved low-latency streaming and efficient audio handling with Rust.
 
-### [My Second Teacher](https://mysecondteacher.com) – React.js, Node.js, MongoDB
+**My Second Teacher**  
+_React.js, Node.js, MongoDB_  
+[https://mysecondteacher.com](https://mysecondteacher.com)
 
-- Contributed to a multi-award-winning e-learning platform used across 51 countries.
-- Built scalable backend components and enhanced the user experience.
+- Contributed to a multi-award-winning e-learning platform used in 51 countries.
+- Delivered scalable backend components and enhanced user experience.
 
-### [JelaJah Baca](https://jelajahbaca.com) – React.js, Framer Motion, RTK Query
+**JelaJah Baca**  
+_React.js, Framer Motion, RTK Query_  
+[https://jelajahbaca.com](https://jelajahbaca.com)
 
-- Built an eLibrary system with multi-color highlighting, scribbling, and annotations.
-- Developed a responsive, intuitive frontend for rich reading experiences.
+- Built an eLibrary system with features like multi-color highlighting, scribbling, and annotations.
+- Developed a responsive React frontend for a rich reading experience.
 
-### [Kung Fu Quiz](https://kungfuquiz.com) – React.js, NestJS, RTK Query, MongoDB
+**Kung Fu Quiz**  
+_React.js, NestJS, RTK Query, MongoDB_  
+[https://kungfuquiz.com](https://kungfuquiz.com)
 
-- Created a video-based and non-video interactive quiz platform.
-- Built admin tools, quiz creation, challenge system, and scoring logic.
+- Built an interactive quiz platform with video and non-video quizzes.
+- Developed backend features for quiz creation, video syncing, and user scoring.
+- Delivered admin tools for managing quizzes and users.
 
-### [Home School Asia](https://www.homeschool.asia) – React.js, RTK Query
+**Home School Asia**  
+_React.js, RTK Query_  
+[https://www.homeschool.asia](https://www.homeschool.asia)
 
-- Developed a platform for Cambridge IGCSE AS/A Level homeschoolers.
-- Integrated payments, interactive content, and real-time notifications.
+- Developed a homeschooling platform for Cambridge IGCSE AS/A Level.
+- Implemented interactive lessons, eBooks, test papers, and revision notes.
+- Integrated payment models and real-time notification systems.
 
-### Ecommerce Platform – NestJS, TypeORM, PostgreSQL, React.js, RTK Query
+**Ecommerce Platform**  
+_NestJS, TypeORM, PostgreSQL, React.js, RTK Query_
 
-- Built a full ecommerce stack including product listings, checkout, admin dashboard.
-- Handled backend data with NestJS + PostgreSQL, and dynamic frontend UI.
+- Developed a complete ecommerce solution with product listings, shopping cart, checkout, and admin dashboard.
+- Built RESTful APIs and managed relational data with TypeORM and PostgreSQL.
 
-### Payment Microservice – Fastify, gRPC, Stripe, PayPal
+**Payment Microservice**  
+_Fastify, gRPC, Stripe, PayPal_
 
-- Created a dedicated microservice for Stripe & PayPal transactions.
-- Used gRPC for secure inter-service communication and fault tolerance.
+- Created a payment microservice for Stripe and PayPal transactions.
+- Integrated gRPC for secure inter-service communication.
 
-### Notification Microservice – Fastify, RabbitMQ, Socket.IO, AWS SES
+**Notification Microservice**  
+_Fastify, RabbitMQ, Socket.IO, AWS SES_
 
-- Real-time notification system with in-app + email channels.
-- Used RabbitMQ for queueing, SES for email delivery, and Socket.IO for WebSocket notifications.
+- Developed a real-time notification system using RabbitMQ and Socket.IO.
+- Implemented email delivery with Amazon SES for transactional and event-driven communication.

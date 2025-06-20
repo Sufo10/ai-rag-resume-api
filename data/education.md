@@ -1,7 +1,11 @@
-## Education
+# Education
 
-**BSc (Hons) in Computing - First Class Honours (81.67%)**  
-London Metropolitan University – Mar 2021 to Sept 2023
+**BSc (Hons) in Computing**  
+London Metropolitan University, UK  
+_March 2021 – September 2023_  
+First Class Honours (Top of Faculty, 81.67%)
 
-**SLC in Science - A+ (3.89 GPA)**  
-Liverpool International Secondary School – Jul 2017 to Aug 2019
+**SLC in Science**  
+Liverpool International Secondary School, Kathmandu, Nepal  
+_July 2017 – August 2019_  
+A+ (Top of School, 3.89 GPA)
