@@ -1,11 +1,15 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
-from config import EnvConfig
 import requests
 import json
 import os
-from fastapi.responses import StreamingResponse
+from fastapi.responses import StreamingResponse, JSONResponse
+from slowapi import Limiter
+from slowapi.util import get_remote_address
+from slowapi.errors import RateLimitExceeded
+from slowapi.middleware import SlowAPIMiddleware
+from config import EnvConfig
 
 app = FastAPI(
     title="Personal AI API",
@@ -20,6 +24,19 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+limiter = Limiter(key_func=get_remote_address)
+app.state.limiter = limiter
+
+
+@app.exception_handler(RateLimitExceeded)
+async def rate_limit_handler(request: Request, exc: RateLimitExceeded):
+    return JSONResponse(
+        status_code=429,
+        content={"detail": "Rate limit exceeded. Please try again later."}
+    )
+
+app.add_middleware(SlowAPIMiddleware)
 
 
 class Query(BaseModel):
@@ -120,7 +137,9 @@ def gemini_stream_generator(prompt, question):
 
 
 @app.post("/api/resume")
-async def gemini_test_stream(query: Query):
+@limiter.limit("200/minute")
+async def resume(request: Request):
+    query = Query(**await request.json())
     context = build_context_from_json()
     prompt = f"""
 You are an expert AI assistant helping answer questions about a candidate's professional background, skills, and achievements. Use ONLY the provided context below to answer the user's question. Do not use any outside knowledge or make up information. If the answer is not in the context, say \"I don't have that information.\"
