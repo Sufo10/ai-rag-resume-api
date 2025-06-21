@@ -57,13 +57,22 @@ _Fastify, RabbitMQ, Socket.IO, AWS SES_
 - Developed a real-time notification system using RabbitMQ and Socket.IO.
 - Implemented email delivery with Amazon SES for transactional and event-driven communication.
 
+**Jelajah Ilmu Forum**  
+_NodeBB, Node.js, Custom Plugins_
+[https://forum.jelajahilmu.com](https://forum.jelajahilmu.com)
+
+- Deployed and customized an open source NodeBB forum for the Jelajah Ilmu community.
+- Integrated custom themes, plugins, and SSO for seamless user experience.
+- Enhanced forum functionality with custom plugin development and configuration.
+
 # Open Source Projects
 
 **nodebb-plugin-aws-s3-upload**  
 _Node.js, NodeBB, Amazon S3, aws-sdk v3_  
 [https://www.npmjs.com/package/nodebb-plugin-aws-s3-upload](https://www.npmjs.com/package/nodebb-plugin-aws-s3-upload)
 
-- A NodeBB plugin that handles file uploads and stores them in Amazon S3 using aws-sdk v3 and config.json or NodeBB database.
+- Developed for NodeBB forums to handle file uploads and store them in Amazon S3 using aws-sdk v3.
+- Supports configuration via config.json or NodeBB database.
 - Published and maintained as an open-source package on npm.
 
 **zod-prime**  

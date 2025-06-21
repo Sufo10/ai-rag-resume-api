@@ -251,6 +251,16 @@
         "Implemented email delivery using Amazon SES to support transactional and event-driven email communication.",
         "Built an event-driven system that supports multi-channel notifications (in-app, WebSocket, email) for maximum user reach and flexibility."
       ]
+    },
+    {
+      "name": "Jelajah Ilmu Forum",
+      "stack": ["NodeBB", "Node.js", "Custom Plugins"],
+      "link": "https://forum.jelajahilmu.com",
+      "bullets": [
+        "Deployed and customized an open source NodeBB forum for the Jelajah Ilmu community.",
+        "Integrated custom themes, plugins, and SSO for seamless user experience.",
+        "Enhanced forum functionality with custom plugin development and configuration."
+      ]
     }
   ],
   "open_source_projects": [
