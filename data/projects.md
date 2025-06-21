@@ -56,3 +56,19 @@ _Fastify, RabbitMQ, Socket.IO, AWS SES_
 
 - Developed a real-time notification system using RabbitMQ and Socket.IO.
 - Implemented email delivery with Amazon SES for transactional and event-driven communication.
+
+# Open Source Projects
+
+**nodebb-plugin-aws-s3-upload**  
+_Node.js, NodeBB, Amazon S3, aws-sdk v3_  
+[https://www.npmjs.com/package/nodebb-plugin-aws-s3-upload](https://www.npmjs.com/package/nodebb-plugin-aws-s3-upload)
+
+- A NodeBB plugin that handles file uploads and stores them in Amazon S3 using aws-sdk v3 and config.json or NodeBB database.
+- Published and maintained as an open-source package on npm.
+
+**zod-prime**  
+_TypeScript, Zod_  
+[https://www.npmjs.com/package/zod-prime](https://www.npmjs.com/package/zod-prime)
+
+- Enhances Zod with real-world schema utilities for production-grade apps.
+- Published and maintained as an open-source package on npm.

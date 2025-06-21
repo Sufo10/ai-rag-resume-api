@@ -4,7 +4,9 @@
     "phone": "+977-9815091399",
     "email": "sujan.poudel210@gmail.com",
     "location": "Kathmandu, Nepal",
-    "website": "sujancpoudel.com.np",
+    "website": "https://sujancpoudel.com.np",
+    "github": "https://github.com/Sufo10",
+    "linkedin": "https://www.linkedin.com/in/sujan-poudel-354a4b232/",
     "summary": "Passionate and versatile Full-Stack Developer with nearly 3 years of hands-on experience crafting scalable web applications and microservices using modern JavaScript and TypeScript stacks. Adept at architecting robust backend systems and delivering seamless, intuitive front-end experiences. Eager to leverage strong problem-solving abilities and excellent communication skills to contribute innovative solutions and drive impactful projects. Always excited to learn new technologies and take on challenging opportunities that foster growth and collaboration."
   },
   "experience": [
@@ -96,7 +98,7 @@
     {
       "degree": "BSc (Hons) in Computing",
       "grade": "First Class Honours (Top of the Faculty 81.67%)",
-      "school": "London Metropolitan University, London, UK",
+      "school": "London Metropolitan University, London, UK (Teaching Institute: Islington College, Kathmandu, Nepal)",
       "start": "2021-03",
       "end": "2023-09"
     },
@@ -248,6 +250,26 @@
         "Developed a real-time notification microservice using RabbitMQ for message brokering and Socket.IO for WebSocket-based push notifications.",
         "Implemented email delivery using Amazon SES to support transactional and event-driven email communication.",
         "Built an event-driven system that supports multi-channel notifications (in-app, WebSocket, email) for maximum user reach and flexibility."
+      ]
+    }
+  ],
+  "open_source_projects": [
+    {
+      "name": "zod-prime",
+      "stack": ["TypeScript", "Zod"],
+      "link": "https://www.npmjs.com/package/zod-prime",
+      "bullets": [
+        "Enhances Zod with real-world schema utilities for production-grade apps.",
+        "Published and maintained as an open-source package on npm."
+      ]
+    },
+    {
+      "name": "nodebb-plugin-aws-s3-upload",
+      "stack": ["Node.js", "NodeBB", "Amazon S3", "aws-sdk v3"],
+      "link": "https://www.npmjs.com/package/nodebb-plugin-aws-s3-upload",
+      "bullets": [
+        "A NodeBB plugin that handles file uploads and stores them in Amazon S3 using aws-sdk v3 and config.json or NodeBB database.",
+        "Published and maintained as an open-source package on npm."
       ]
     }
   ],

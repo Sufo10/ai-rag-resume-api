@@ -10,6 +10,7 @@ from slowapi.util import get_remote_address
 from slowapi.errors import RateLimitExceeded
 from slowapi.middleware import SlowAPIMiddleware
 from config import EnvConfig
+from google import genai
 
 app = FastAPI(
     title="Personal AI API",
@@ -64,6 +65,8 @@ Email: {resume['profile']['email']}
 Phone: {resume['profile']['phone']}
 Location: {resume['profile']['location']}
 Website: {resume['profile']['website']}
+GitHub: {resume['profile']['github']}
+LinkedIn: {resume['profile']['linkedin']}
 Summary: {resume['profile']['summary']}
 
 ## Experience
@@ -86,6 +89,14 @@ Summary: {resume['profile']['summary']}
         context += f"- {proj['name']} ({', '.join(proj['stack'])}){link_str}\n"
         for bullet in proj['bullets']:
             context += f"  * {bullet}\n"
+    # Add Open Source Projects section
+    if 'open_source_projects' in resume and resume['open_source_projects']:
+        context += "\n## Open Source Projects\n"
+        for proj in resume['open_source_projects']:
+            link_str = f" [{proj['link']}]" if 'link' in proj else ""
+            context += f"- {proj['name']} ({', '.join(proj['stack'])}){link_str}\n"
+            for bullet in proj['bullets']:
+                context += f"  * {bullet}\n"
     context += "\n## Certifications\n"
     for section, items in resume['certifications'].items():
         context += f"- {section.replace('_', ' ').title()}: {', '.join(items)}\n"
@@ -97,43 +108,18 @@ Summary: {resume['profile']['summary']}
     return context
 
 
-def gemini_stream_generator(prompt, question):
-    url = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:streamGenerateContent"
-    headers = {"Content-Type": "application/json"}
+client = genai.Client(api_key=EnvConfig.GEMINI_API_KEY)
 
-    payload = {
-        "systemInstruction": {
-            "parts": [{
-                "text": prompt
-            }]
-        },
-        "contents": [
-            {"parts": [{"text": question}]}
-        ]
-    }
-    params = {"alt": "sse", "key": f"{EnvConfig.GEMINI_API_KEY}"}
-    with requests.post(url, headers=headers, params=params, json=payload, stream=True) as r:
-        buffer = ""
-        for chunk in r.iter_content(chunk_size=1024, decode_unicode=True):
-            buffer += chunk
-            while True:
-                line_end = buffer.find('\n')
-                if line_end == -1:
-                    break
-                line = buffer[:line_end].strip()
-                buffer = buffer[line_end + 1:]
-                if line.startswith('data: '):
-                    data = line[6:]
-                    if not data or data == '[DONE]':
-                        continue
-                    try:
-                        data_obj = json.loads(data)
-                        # Extract the streamed text from Gemini's SSE response
-                        text = data_obj["candidates"][0]["content"]["parts"][0]["text"]
-                        if text:
-                            yield text
-                    except Exception:
-                        pass
+
+def gemini_stream_generator(prompt):
+    stream = client.models.generate_content_stream(
+        model="gemini-2.5-flash", contents=prompt, config={
+            'system_instruction': "You are an expert AI resume assistant helping answer questions about a candidate's professional background, skills, and achievements. Strictly use the provided context to generate answers. Do not rely on outside knowledge, generalizations, or fabricate any details not explicitly supported by the context."
+        }
+    )
+    for chunk in stream:
+        if hasattr(chunk, "text") and chunk.text:
+            yield chunk.text
 
 
 @app.post("/api/resume")
@@ -142,29 +128,40 @@ async def resume(request: Request):
     query = Query(**await request.json())
     context = build_context_from_json()
     prompt = f"""
-You are an expert AI assistant helping answer questions about a candidate's professional background, skills, and achievements. Use ONLY the provided context below to answer the user's question. Do not use any outside knowledge or make up information. If the answer is not in the context, say \"I don't have that information.\"
+You will be provided with the following context:
 
 ---
 CONTEXT:
 {context}
 ---
 
-QUESTION:
-{query.question}
+You will be asked a question about the context. Here is the question: {query.question}
 
-INSTRUCTIONS:
-INSTRUCTIONS:
+Follow these instructions to answer the question:
+
+## Answer Formatting
 - Respond in clear, professional, and well-structured markdown.
-- Use only the information in the context, but you may synthesize, summarize, or evaluate the candidate’s skills and experience based on the evidence provided.
-- For questions about technical expertise (e.g., React.js), cite relevant roles, projects, and bullet points, and provide a brief assessment of proficiency and impact.
-- If the question is about projects, list each project as a markdown heading (## Project Name), followed by its stack, link (if available), and bullet points describing the work and impact.
 - Use markdown formatting: headings, bullet points, and links.
-- Do not make up facts not present in the context, but you may draw reasonable conclusions based on the evidence.
-- If the context does not contain the answer, say so clearly.
-- Never preface with phrases like "Based on the context".
+- Use numbered lists for sequences (e.g., steps, achievements over time, projects, etc).
+
+## Content Boundaries
+- Use only the information in the context, but you may synthesize, summarize, or evaluate the candidate’s skills and experience based on the evidence provided.
+- Never speculate or assume facts beyond what is directly supported.
+- If the context does not contain the answer, subtly paraphrase: "I'm sorry, I don't have any information on that."
+
+## Question Types
+- For identity-style questions (e.g., "Who are you?"), respond on behalf of the candidate as an AI resume assistant helping answer questions for the person.
+- For technical questions, cite specific roles/projects and provide a brief evaluation of skills and impact.
+- For project questions, list each as a markdown heading with stack, link (if available), and bullet points on work and impact.
+- For broad/subjective queries (e.g., "strengths"), synthesize from context with evidence.
+- If multiple relevant roles or experiences are available, list them in reverse chronological order with key accomplishments.
+
+## Response Behavior
 - Be concise, accurate, and directly answer the question.
+- Never preface with phrases like "Based on the context.
+
 """
-    return StreamingResponse(gemini_stream_generator(prompt, query.question), media_type="text/markdown")
+    return StreamingResponse(gemini_stream_generator(prompt), media_type="text/markdown")
 
 
 @app.get("/")

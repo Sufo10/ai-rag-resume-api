@@ -3,3 +3,4 @@ uvicorn
 requests
 python-dotenv
 slowapi
+google-genai
